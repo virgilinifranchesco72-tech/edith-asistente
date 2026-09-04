@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07111f">
+  <title>EDITH · Asistente personal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">E</span><div><strong id="assistantTitle">EDITH</strong><small>ASISTENTE PERSONAL</small></div></div>
+      <div class="status"><span class="status-dot"></span><span id="connectionStatus">MODO DEMOSTRACIÓN</span></div>
+    </header>
+
+    <section class="hero" aria-labelledby="welcomeTitle">
+      <div><p class="eyebrow">SISTEMA EN LÍNEA</p><h1 id="welcomeTitle">A su servicio, señor.</h1><p class="subtitle">Interfaz personal de asistencia con voz, memoria local y una pizca de ironía cuidadosamente calibrada.</p></div>
+      <div class="orb" aria-hidden="true"><span></span></div>
+    </section>
+
+    <section class="chat-panel" aria-label="Conversación">
+      <div id="messages" class="messages" aria-live="polite"></div>
+      <div id="processing" class="processing" hidden><span></span><span></span><span></span> Procesando, señor...</div>
+      <form id="messageForm" class="composer">
+        <label class="sr-only" for="messageInput">Escriba su mensaje</label>
+        <input id="messageInput" type="text" maxlength="1000" autocomplete="off" placeholder="Escriba una instrucción, señor...">
+        <button id="micButton" class="icon-button" type="button" title="Activar micrófono" aria-label="Activar micrófono">🎙️</button>
+        <button class="send-button" type="submit">Enviar <span>↗</span></button>
+      </form>
+      <p id="micStatus" class="microphone-status" role="status"></p>
+    </section>
+
+    <section class="controls" aria-label="Controles">
+      <button id="voiceToggle" class="control-button" type="button">🔊 Voz: activada</button>
+      <button id="clearButton" class="control-button danger" type="button">⌫ Borrar historial</button>
+      <button id="settingsButton" class="control-button" type="button">⚙ Configuración</button>
+    </section>
+
+    <section id="settingsPanel" class="settings-panel" hidden>
+      <h2>Configuración</h2>
+      <label for="assistantName">Nombre del asistente</label>
+      <div class="settings-row"><input id="assistantName" type="text" maxlength="40" value="EDITH"><button id="saveSettings" class="send-button" type="button">Guardar</button></div>
+      <p class="privacy-note">El historial y las preferencias se guardan únicamente en este navegador mediante LocalStorage.</p>
+    </section>
+    <footer>EDITH · Demo estática preparada para GitHub Pages</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
