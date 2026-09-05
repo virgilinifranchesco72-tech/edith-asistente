@@ -28,7 +28,7 @@ function ejecutar(mensaje){let m=mensaje.trim(), x=m.toLowerCase().replace(/^edi
  if(x==="preferencias")return `Preferencias: nombre ${estado.nombre}; voz ${estado.voz?"activada":"desactivada"}; modo ${estado.modo}; almacenamiento local ${localStorage?"disponible":"no disponible"}.`;
  if(x==="modo memoria")return "La memoria se administra desde el navegador mediante LocalStorage. Puede borrarla con: edith limpia memoria.";
  if(x==="fecha")return `Hoy es ${new Date().toLocaleDateString("es-AR",{dateStyle:"full"})}, señor.`;
- if(x==="hora")return `La hora local es ${new Date().toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit",second:"2-digit"}), señor.`;
+ if(x==="hora")return `La hora local es ${new Date().toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit",second:"2-digit"})}, señor.`;
  if(x==="día"||x==="dia")return `Hoy es ${new Date().toLocaleDateString("es-AR",{weekday:"long"})}.`;
  if(x==="tareas"){let ts=tareas();return ts.length?"TAREAS:\n"+ts.map((t,i)=>`${i+1}. ${t.completa?"✓":"□"} ${t.texto}`).join("\n"):"No hay tareas guardadas."}
  if(x.startsWith("nueva tarea ")){let texto=m.replace(/^edith[,:]?\s*nueva tarea\s+/i,"").trim(),ts=tareas();if(!texto)return "Indique el texto de la tarea, señor.";ts.push({texto,completa:false});guardar(CLAVE_TAREAS,ts);return `Tarea creada: “${texto}”.`}
