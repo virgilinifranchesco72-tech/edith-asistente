@@ -1,50 +1,34 @@
 <!doctype html>
 <html lang="es-AR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#07111f">
-  <title>EDITH · Asistente personal</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#050b14">
+  <title>EDITH · Asistente personal</title><link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="app-shell">
-    <header class="topbar">
-      <div class="brand"><span class="brand-mark">E</span><div><strong id="assistantTitle">EDITH</strong><small>ASISTENTE PERSONAL</small></div></div>
-      <div class="status"><span class="status-dot"></span><span id="connectionStatus">MODO DEMOSTRACIÓN</span></div>
-    </header>
-
-    <section class="hero" aria-labelledby="welcomeTitle">
-      <div><p class="eyebrow">SISTEMA EN LÍNEA</p><h1 id="welcomeTitle">A su servicio, señor.</h1><p class="subtitle">Interfaz personal de asistencia con voz, memoria local y una pizca de ironía cuidadosamente calibrada.</p></div>
-      <div class="orb" aria-hidden="true"><span></span></div>
+<main class="app-shell">
+  <header class="topbar"><div class="brand"><span class="brand-mark">E</span><div><strong id="assistantTitle">EDITH</strong><small>v2.5.1 · SISTEMA OPERATIVO</small></div></div><div class="status"><i></i><span>ONLINE</span><small id="clock">--:--:--</small></div></header>
+  <section class="hero"><div><p class="eyebrow">SISTEMA OPERATIVO EDITH</p><h1>Su asistente inteligente.</h1><p class="subtitle">A su servicio, señor. Control, información y conversación en una sola interfaz.</p><div class="hero-actions"><button class="quick" data-message="¿Qué puedes hacer?">⌁ Capacidades</button><button class="quick" data-message="¿Cuál es el estado del sistema?">◈ Estado del sistema</button></div></div><div class="orb"><span></span></div></section>
+  <section class="dashboard">
+    <aside class="side-column">
+      <article class="card user-card"><p class="eyebrow">USUARIO</p><h2>SEÑOR</h2><p>Franchesco Virgilini</p><span class="active-pill">● MODO ACTIVO</span></article>
+      <article class="card"><div class="card-heading"><h3>ESTADO DEL SISTEMA</h3><span>●</span></div><div class="metric"><label>CPU <b>32%</b></label><div><i style="width:32%"></i></div></div><div class="metric"><label>MEMORIA <b>47%</b></label><div><i style="width:47%"></i></div></div><div class="metric"><label>ALMACENAMIENTO <b>68%</b></label><div><i style="width:68%"></i></div></div><p class="tiny">● Todos los sistemas operativos</p></article>
+      <article class="card weather"><div class="card-heading"><h3>CLIMA</h3><span>BA</span></div><strong>17°</strong><p>☁ Nublado</p><small>Buenos Aires, Argentina</small></article>
+      <article class="card"><div class="card-heading"><h3>REPRODUCTOR</h3><span>♫</span></div><strong>Blinding Lights</strong><p class="muted">The Weeknd</p><div class="progress"><i style="width:58%"></i></div><div class="player"><span>↶</span><b>▶</b><span>↷</span></div></article>
+    </aside>
+    <section class="main-column">
+      <div class="welcome"><p class="eyebrow">EDITH EN LÍNEA</p><h2>Hola, señor.</h2><p>¿En qué puedo ayudarlo hoy?</p></div>
+      <section class="chat-panel"><div id="messages" class="messages" aria-live="polite"></div><div id="processing" class="processing" hidden><span></span><span></span><span></span> Procesando, señor...</div><form id="messageForm" class="composer"><label class="sr-only" for="messageInput">Escriba su mensaje</label><input id="messageInput" maxlength="1000" autocomplete="off" placeholder="Escriba una instrucción, señor..."><button id="micButton" class="icon-button" type="button" title="Activar micrófono">🎙️</button><button class="send-button" type="submit">Enviar ↗</button></form><p id="micStatus" class="microphone-status"></p></section>
+      <article class="card listening"><div class="wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><strong>ESCUCHANDO...</strong><small>Pulse el micrófono para hablar con EDITH</small></article>
     </section>
-
-    <section class="chat-panel" aria-label="Conversación">
-      <div id="messages" class="messages" aria-live="polite"></div>
-      <div id="processing" class="processing" hidden><span></span><span></span><span></span> Procesando, señor...</div>
-      <form id="messageForm" class="composer">
-        <label class="sr-only" for="messageInput">Escriba su mensaje</label>
-        <input id="messageInput" type="text" maxlength="1000" autocomplete="off" placeholder="Escriba una instrucción, señor...">
-        <button id="micButton" class="icon-button" type="button" title="Activar micrófono" aria-label="Activar micrófono">🎙️</button>
-        <button class="send-button" type="submit">Enviar <span>↗</span></button>
-      </form>
-      <p id="micStatus" class="microphone-status" role="status"></p>
-    </section>
-
-    <section class="controls" aria-label="Controles">
-      <button id="voiceToggle" class="control-button" type="button">🔊 Voz: activada</button>
-      <button id="clearButton" class="control-button danger" type="button">⌫ Borrar historial</button>
-      <button id="settingsButton" class="control-button" type="button">⚙ Configuración</button>
-    </section>
-
-    <section id="settingsPanel" class="settings-panel" hidden>
-      <h2>Configuración</h2>
-      <label for="assistantName">Nombre del asistente</label>
-      <div class="settings-row"><input id="assistantName" type="text" maxlength="40" value="EDITH"><button id="saveSettings" class="send-button" type="button">Guardar</button></div>
-      <p class="privacy-note">El historial y las preferencias se guardan únicamente en este navegador mediante LocalStorage.</p>
-    </section>
-    <footer>EDITH · Demo estática preparada para GitHub Pages</footer>
-  </main>
-  <script src="script.js"></script>
-</body>
-</html>
+    <aside class="side-column right-column">
+      <article class="card"><div class="card-heading"><h3>COMANDOS RÁPIDOS</h3></div><div class="quick-grid"><button data-message="Abrir navegador">◉ Navegador</button><button data-message="Mostrar archivos">▣ Archivos</button><button data-message="Reproducir música">♫ Música</button><button data-message="Tomar nota">✎ Nota</button><button data-message="Dime el clima">☁ Clima</button><button data-message="Dime las noticias">▤ Noticias</button></div></article>
+      <article class="card"><div class="card-heading"><h3>RECORDATORIOS</h3><span>+</span></div><p>18:00 · Estudiar matemáticas</p><p>19:30 · Entrenamiento</p><p>21:00 · Leer libro</p></article>
+      <article class="card"><div class="card-heading"><h3>CALENDARIO</h3><span id="calendarMonth">--</span></div><div id="calendar" class="calendar"></div></article>
+      <article class="card"><div class="card-heading"><h3>ACTIVIDAD</h3><span>●</span></div><p>✉ 3 mensajes nuevos</p><p>⌖ Ubicación: Buenos Aires</p><p>▣ Seguridad: protegida</p></article>
+    </aside>
+  </section>
+  <section class="controls"><button id="voiceToggle" class="control-button">🔊 Voz: activada</button><button id="clearButton" class="control-button danger">⌫ Borrar historial</button><button id="settingsButton" class="control-button">⚙ Configuración</button></section>
+  <section id="settingsPanel" class="settings-panel" hidden><h2>Configuración</h2><label for="assistantName">Nombre del asistente</label><div class="settings-row"><input id="assistantName" value="EDITH" maxlength="40"><button id="saveSettings" class="send-button">Guardar</button></div><p>El historial y las preferencias se guardan únicamente en este navegador.</p></section>
+  <footer>EDITH · Panel conceptual · Los indicadores de sistema, clima, noticias y correo son demostrativos.</footer>
+</main><script src="script.js"></script>
+</body></html>
